@@ -37,9 +37,9 @@ public class DemoPractice {
 		System.out.println("Order: " + order.getId());
 		System.out.println("Cart price: " + cart.getPrice());
 		System.out.println("Payment Method: " + payment);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println(cart);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println("Total: " + order.getTotal());
 		
 		System.out.println("\n\n");
@@ -53,9 +53,9 @@ public class DemoPractice {
 		System.out.println("Order: " + order.getId());
 		System.out.println("Cart price: " + cart.getPrice());
 		System.out.println("Payment Method: " + payment);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println(cart);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println("Total: " + order.getTotal());
 
 		System.out.println("\n\n");
@@ -69,9 +69,9 @@ public class DemoPractice {
 		System.out.println("Order: " + order.getId());
 		System.out.println("Cart price: " + cart.getPrice());
 		System.out.println("Payment Method: " + payment);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println(cart);
-		System.out.println("---------------------------------------------");
+		System.out.println("-------------------------------------------------------------------");
 		System.out.println("Total: " + order.getTotal());
 	}
 }

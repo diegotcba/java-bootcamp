@@ -13,7 +13,6 @@ public class Item implements Component {
 		this.quantity=quantity;
 	}
 	
-	
 	public double getPrice()
 	{
 		return (double)(quantity*product.getPrice());
@@ -31,13 +30,13 @@ public class Item implements Component {
 	
 	public String toString()
 	{
-		return product.toString() + "\t" + quantity + "\t" + getPrice();
+		return "-" + product.toString() + "\t" + quantity + "\t" + getPrice();
 	}
 
 	@Override
 	public String getList() 
 	{
-		return "-" + toString();
+		return "\t" + toString();
 	}
 		
 }

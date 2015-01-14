@@ -17,7 +17,7 @@ public class Offer implements Component {
 	@Override
 	public String getList() 
 	{
-		String list=name+"\t\t\t\t" + price +"\n";
+		String list="*" + name+"\t\t\t\t" + price +"\n";
 		for(Component component : components)
 		{
 			list+=component.getList() + "\n";
