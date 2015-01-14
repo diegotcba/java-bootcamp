@@ -15,9 +15,9 @@ public class PaypalPayment implements PaymentType {
 		double cheapest=0;
 		int i=0;
 		
-		Iterator<Item> it=cart.Iterator();
+		Iterator<Component> it=cart.Iterator();
 		while (it.hasNext()) {
-			Item item = (Item) it.next();
+			Component item = (Component) it.next();
 			if (i==0) { cheapest=item.getPrice();}
 			
 			if (item.getPrice()<=cheapest)

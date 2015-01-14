@@ -8,9 +8,9 @@ public class CashPayment implements PaymentType {
 		double expensive=0;
 		int i=0;
 		
-		Iterator<Item> it=cart.Iterator();
+		Iterator<Component> it=cart.Iterator();
 		while (it.hasNext()) {
-			Item item = (Item) it.next();
+			Component item = (Component) it.next();
 			if (i==0) { expensive=item.getPrice();}
 			
 			if (item.getPrice()>=expensive)
