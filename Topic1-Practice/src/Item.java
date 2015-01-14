@@ -1,5 +1,5 @@
 
-public class Item {
+public class Item implements Component {
 	private Product product;
 	private int quantity;
 	
@@ -8,6 +8,7 @@ public class Item {
 		this.product=product;
 		this.quantity=quantity;
 	}
+	
 	
 	public double getPrice()
 	{
@@ -27,6 +28,12 @@ public class Item {
 	public String toString()
 	{
 		return product.toString() + "\t" + quantity + "\t" + getPrice();
+	}
+
+	@Override
+	public String getList() 
+	{
+		return "-" + toString();
 	}
 		
 }

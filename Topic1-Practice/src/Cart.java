@@ -4,31 +4,32 @@ import java.util.List;
 
 
 public class Cart {
-	private List<Item> items;
+	private List<Component> items;
 	
 	public Cart()
 	{
-		items=new ArrayList<Item>();
+		items=new ArrayList<Component>();
 	}
 	
-	public void addItem(Item item)
+	public void addItem(Component item)
 	{
 		items.add(item);
 	}
 
-	public void removeItem(int id)
+	public void removeItem(Component item)
 	{
-		Iterator<Item> it=Iterator();
-		while (it.hasNext()) {
-			Item item = (Item) it.next();
-			if (item.getProduct().getId()==id)
-			{
-				it.remove();
-			}
-		}
+		items.remove(item);
+//		Iterator<Component> it=Iterator();
+//		while (it.hasNext()) {
+//			Component item = (Component) it.next();
+//			if (item.getProduct().getId()==id)
+//			{
+//				it.remove();
+//			}
+//		}
 	}
 	
-	public Iterator<Item> Iterator()
+	public Iterator<Component> Iterator()
 	{
 		return new CartIterator();
 	}
@@ -41,9 +42,9 @@ public class Cart {
 	public double getPrice()
 	{
 		double totalprice=0;
-		Iterator<Item> it=Iterator();
+		Iterator<Component> it=Iterator();
 		while (it.hasNext()) {
-			Item item = (Item) it.next();
+			Component item = (Component) it.next();
 			totalprice+=item.getPrice();
 		}
 		return totalprice;
@@ -53,15 +54,15 @@ public class Cart {
 	{
 		String list="";
 		
-		Iterator<Item> it=Iterator();
+		Iterator<Component> it=Iterator();
 		while (it.hasNext()) {
-			Item item = (Item) it.next();
+			Component item = (Component) it.next();
 			list+=item + ((it.hasNext()) ? "\n" : "");
 		}
 		return list;
 	}
 	
-	class CartIterator implements Iterator<Item>
+	class CartIterator implements Iterator<Component>
 	{
 		private int currentIndex=0;
 
@@ -78,7 +79,7 @@ public class Cart {
 		}
 
 		@Override
-		public Item next() 
+		public Component next() 
 		{
 			return items.get(currentIndex++);
 		}
