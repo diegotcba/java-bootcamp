@@ -29,6 +29,6 @@ public class Product {
 	
 	public String toString()
 	{
-		return name + "    " + price;
+		return name + "\t\t" + price;
 	}
 }

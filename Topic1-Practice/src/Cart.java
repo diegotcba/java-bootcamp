@@ -48,16 +48,7 @@ public class Cart {
 		}
 		return totalprice;
 	}
-	
-	public void displayItems()
-	{
-		Iterator<Item> it=Iterator();
-		while (it.hasNext()) {
-			Item item = (Item) it.next();
-			System.out.println(item);
-		}
-	}
-	
+		
 	public String toString()
 	{
 		String list="";
@@ -65,7 +56,7 @@ public class Cart {
 		Iterator<Item> it=Iterator();
 		while (it.hasNext()) {
 			Item item = (Item) it.next();
-			list+=item + "\n";
+			list+=item + ((it.hasNext()) ? "\n" : "");
 		}
 		return list;
 	}

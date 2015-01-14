@@ -26,7 +26,7 @@ public class Item {
 	
 	public String toString()
 	{
-		return product.toString() + "  " + quantity + "   $"+getPrice();
+		return product.toString() + "\t" + quantity + "\t" + getPrice();
 	}
 		
 }
