@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author DiegoT
+ * 
+ * Composite class from Composite pattern.
+ *
+ */
 public class Offer implements Component {
 	private List<Component> components=new ArrayList<Component>();
 	
