@@ -3,6 +3,10 @@ import java.util.Iterator;
 import java.util.List;
 
 
+/**
+ * @author DiegoT
+ *
+ */
 public class Cart {
 	private List<Component> items;
 	

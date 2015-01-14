@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author DiegoT
  * 
- * Composite class from Composite pattern.
+ * Composite class from Composite pattern for the Offers.
  *
  */
 public class Offer implements Component {

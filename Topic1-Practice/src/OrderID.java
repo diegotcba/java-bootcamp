@@ -2,6 +2,8 @@
 /**
  * @author DiegoT
  *
+ * Singleton pattern for generation and accesss to a unique number (ID)
+ * 
  */
 public class OrderID {
 

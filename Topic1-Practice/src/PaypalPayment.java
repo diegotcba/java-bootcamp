@@ -1,5 +1,9 @@
 import java.util.Iterator;
 
+/**
+ * @author DiegoT
+ *
+ */
 public class PaypalPayment implements PaymentType {
 	private String email;
 	private String password;

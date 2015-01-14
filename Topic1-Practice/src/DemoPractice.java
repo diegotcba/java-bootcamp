@@ -1,6 +1,7 @@
-//import java.util.Iterator;
-
-
+/**
+ * @author DiegoT
+ *
+ */
 public class DemoPractice {
 
 	public static void main(String[] args)

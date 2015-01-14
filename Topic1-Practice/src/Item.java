@@ -1,4 +1,8 @@
 
+/**
+ * @author DiegoT
+ *
+ */
 public class Item implements Component {
 	private Product product;
 	private int quantity;

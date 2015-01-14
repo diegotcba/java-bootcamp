@@ -1,4 +1,8 @@
 
+/**
+ * @author DiegoT
+ *
+ */
 public class CreditCardPayment implements PaymentType {
 	private String name;
 	private String creditNumber;

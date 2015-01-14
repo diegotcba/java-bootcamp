@@ -1,4 +1,8 @@
 
+/**
+ * @author DiegoT
+ *
+ */
 public class Order {
 	private int id;
 	private PaymentType paymentType;

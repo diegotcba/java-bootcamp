@@ -1,6 +1,10 @@
 import java.util.Iterator;
 
 
+/**
+ * @author DiegoT
+ *
+ */
 public class CashPayment implements PaymentType {
 
 	@Override
