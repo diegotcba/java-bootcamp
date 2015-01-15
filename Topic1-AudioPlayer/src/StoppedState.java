@@ -1,6 +1,6 @@
 
-public class IdleState implements AudioPlayerState {
-	private String name="idle";
+public class StoppedState implements AudioPlayerState {
+	private String name="stopped";
 	
 	@Override
 	public void play(AudioPlayer audioplayer) {

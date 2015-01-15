@@ -9,7 +9,7 @@ public class PausedState implements AudioPlayerState {
 
 	@Override
 	public void stop(AudioPlayer audioplayer) {
-		audioplayer.setState(new IdleState());
+		audioplayer.setState(new StoppedState());
 	}
 
 	@Override

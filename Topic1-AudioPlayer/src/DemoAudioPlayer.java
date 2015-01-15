@@ -8,28 +8,31 @@ public class DemoAudioPlayer {
 		
 		//Initialization
 		System.out.println("\nAudio Player Initialization \n");	
-		AudioPlayer audioplayer=new AudioPlayer("Foo Fighters - Everlong.mp3");		
-		System.out.println(audioplayer);
+		AudioPlayer audioPlayer=new AudioPlayer("Foo Fighters - Everlong.mp3");		
+		System.out.println(audioPlayer);
+		
+		AudioPlayerConsoleScreen screen=new AudioPlayerConsoleScreen();
+		AudioPlayerJSON json=new AudioPlayerJSON();
+		
+		audioPlayer.addObserver(screen);
+		audioPlayer.addObserver(json);
 		
 		System.out.println("\n\nPlaying track \n");		
-		audioplayer.play();		
-		System.out.println(audioplayer);
+		audioPlayer.play();		
 		
 		System.out.println("\n\nPausing track \n");		
-		audioplayer.pause();		
-		System.out.println(audioplayer);
+		audioPlayer.pause();		
 		
 		System.out.println("\n\nPlaying track \n");		
-		audioplayer.play();		
-		System.out.println(audioplayer);
+		audioPlayer.play();		
 		
 		System.out.println("\n\nStopping track \n");		
-		audioplayer.stop();		
-		System.out.println(audioplayer);
+		audioPlayer.stop();
+		
+		audioPlayer.removeObserver(screen);
 		
 		System.out.println("\n\nStopping track (stopped previously) \n");		
-		audioplayer.stop();		
-		System.out.println(audioplayer);
+		audioPlayer.stop();		
 		
 	}
 
