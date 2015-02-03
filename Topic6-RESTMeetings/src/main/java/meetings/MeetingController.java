@@ -3,6 +3,7 @@ package meetings;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,9 +37,15 @@ public class MeetingController {
 		service.cancelMeeting(id);
 	}
 	
-//	@RequestMapping(value="/meetings/{id}",method=RequestMethod.PUT)
-//	public void updateMeeting(@PathVariable int id)
-//	{
-//		service.updateMeeting(id, name, room, attendees)
-//	}
+	@RequestMapping(value="/meetings/{id}",method=RequestMethod.PUT)
+	public void updateMeeting(@PathVariable int id,@RequestBody Meeting input)
+	{
+		service.updateMeeting(id, input.getName(), input.getRoom(), input.getAttendes());
+	}
+	
+	@RequestMapping(value="/meetings",method=RequestMethod.POST)
+	public void newMeeting(@RequestBody Meeting input)
+	{
+		service.newMeeting(0, input.getName(), input.getRoom(), input.getAttendes());
+	}
 }
