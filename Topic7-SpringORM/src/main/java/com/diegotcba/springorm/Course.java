@@ -5,13 +5,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Course {
@@ -22,25 +23,25 @@ public class Course {
 	private long id;
 	private String name;
 	private int hoursWeek;
-//	@ManyToOne
-//	private Teacher assignedTeacher;
-	@ManyToMany
+	@ManyToOne
+	private Teacher assignedTeacher;
+	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="Course_Student", 
             joinColumns=@JoinColumn(name="idCourse"),
             inverseJoinColumns=@JoinColumn(name="registrationNumber"))
-    private Set<Student> students;
+    private Set<Student> students=new HashSet<Student>();
+
 	
 	protected Course()
 	{
-		students=new HashSet<Student>();
+		
 	}
 	
-	public Course(String name, int hoursWeek)
+	public Course(String name, int hoursWeek, Teacher assignedTeacher)
 	{
 		this.name=name;
-//		this.assignedTeacher=assignedTeacher;
+		this.assignedTeacher=assignedTeacher;
 		this.hoursWeek=hoursWeek;
-		students=new HashSet<Student>();
 	}
 
 	public long getId() {
@@ -63,13 +64,13 @@ public class Course {
 		this.hoursWeek = hoursWeek;
 	}
 
-//	public Teacher getAssignedTeacher() {
-//		return assignedTeacher;
-//	}
-//
-//	public void setAssignedTeacher(Teacher assignedTeacher) {
-//		this.assignedTeacher = assignedTeacher;
-//	}
+	public Teacher getAssignedTeacher() {
+		return assignedTeacher;
+	}
+
+	public void setAssignedTeacher(Teacher assignedTeacher) {
+		this.assignedTeacher = assignedTeacher;
+	}
 	
 	public String toString()
 	{

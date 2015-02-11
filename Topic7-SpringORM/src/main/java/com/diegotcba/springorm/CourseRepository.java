@@ -1,10 +1,9 @@
 package com.diegotcba.springorm;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
 public interface CourseRepository extends CrudRepository<Course, Long> {
-//	Course findByName(String name);
-//	List<Course> findByTeacher(Teacher assignedTeacher);
+	Optional<Course> findByName(String name);
 }

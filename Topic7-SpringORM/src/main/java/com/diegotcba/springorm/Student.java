@@ -2,13 +2,14 @@ package com.diegotcba.springorm;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -21,8 +22,9 @@ public class Student {
 	private String lastName;
 	private Date dateBirth;
 	
-	@ManyToMany (mappedBy="students")
-	private Set<Course> courses;
+	@ManyToMany (mappedBy="students", fetch = FetchType.EAGER)
+	private Set<Course> courses=new HashSet<Course>();
+;
 	
 	protected Student()
 	{
@@ -67,5 +69,10 @@ public class Student {
 	public String toString()
 	{
 		return lastName + ", " + firstName + " [" + new SimpleDateFormat("dd/MM/yyyy").format(dateBirth) + "]";
+	}
+	
+	public Set<Course> getCourses()
+	{
+		return courses;
 	}
 }

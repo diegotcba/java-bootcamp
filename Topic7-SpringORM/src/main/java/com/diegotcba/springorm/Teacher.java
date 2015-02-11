@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +15,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Teacher {
 	
-//	@OneToMany(mappedBy="assignedTeacher")
-//	private Set<Course> courses=new HashSet<Course>();
+	@OneToMany(mappedBy="assignedTeacher", fetch = FetchType.EAGER)
+	private Set<Course> courses=new HashSet<Course>();
 
 	@Id
 	@GeneratedValue (strategy=GenerationType.AUTO)
@@ -67,5 +68,10 @@ public class Teacher {
 	public String toString()
 	{
 		return lastName + ", " + firstName + " [" + new SimpleDateFormat("dd/MM/yyyy").format(dateBirth) + "]";
+	}
+	
+	public Set<Course> getCourses()
+	{
+		return courses;
 	}
 }
