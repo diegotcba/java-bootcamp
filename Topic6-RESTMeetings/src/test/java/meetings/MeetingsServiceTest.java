@@ -2,6 +2,9 @@ package meetings;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class MeetingsServiceTest {
@@ -32,6 +35,18 @@ public class MeetingsServiceTest {
 	{
 		MeetingsService service=MeetingsServiceFactory.getLocalService();
 		assertTrue(service.getMeetings()!=null);
+	}
+	
+	@Test
+	public void testNewMeeting()
+	{
+		MeetingsService service=MeetingsServiceFactory.getLocalService();
+		Room room=service.getRooms().get(2);
+		List<Attendee> attendes=new ArrayList<Attendee>();
+		attendes.add(service.getAttendees().get(2));
+		attendes.add(service.getAttendees().get(3));
+		service.newMeeting(0, "TestMeeting", room, attendes);
+		assertTrue(service.getMeetings().size()>0);
 	}
 	
 }

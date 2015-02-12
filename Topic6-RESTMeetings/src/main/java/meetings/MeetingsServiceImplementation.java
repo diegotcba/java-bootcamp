@@ -64,7 +64,7 @@ public class MeetingsServiceImplementation implements MeetingsService {
 	@Override
 	public void newMeeting(int id, String name, Room room, List<Attendee> attendes) {
 		// TODO Auto-generated method stub
-		meetings.add(new Meeting(MeetingID.getInstance().getId(), "BootCamp kick-off", room, attendes));
+		meetings.add(new Meeting(MeetingID.getInstance().getId(), name, room, attendes));
 		MeetingID.getInstance().updateId();
 	}
 
