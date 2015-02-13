@@ -1,12 +1,17 @@
 package meetings;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 public class MeetingController {
@@ -43,9 +48,15 @@ public class MeetingController {
 		service.updateMeeting(id, input.getName(), input.getRoom(), input.getAttendes());
 	}
 	
-	@RequestMapping(value="/meetings",method=RequestMethod.POST)
-	public void newMeeting(@RequestBody Meeting input)
+	@RequestMapping(value="/meetings", method=RequestMethod.POST)
+	public ResponseEntity<?> newMeeting(@RequestBody Meeting input)
 	{
 		service.newMeeting(0, input.getName(), input.getRoom(), input.getAttendes());
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setLocation(ServletUriComponentsBuilder
+				.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(1).toUri());
+		return new ResponseEntity<> (null, httpHeaders, HttpStatus.CREATED);
 	}
 }

@@ -25,7 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -82,22 +81,33 @@ public class RestMeetingsApplicationTests {
     	.andExpect(content().contentType(contentType))
     	.andExpect(jsonPath("$", hasSize(4)));
     }
+    
+    
 
     @Test
     public void createMeeting() throws Exception {
-    	Room room=new Room(5, "The Beatles", 10);
-		
+//    	Room room=new Room(5, "The Beatles", 10);
+//
+//		
+//		List<Attendee> attendes=new ArrayList<Attendee>();
+//		attendes.add(new Attendee(10, "John", "Lennon"));
+//		attendes.add(new Attendee(11, "Ringo", "Starr"));
+//		attendes.add(new Attendee(12, "Paul", "McCarney"));
+//		attendes.add(new Attendee(13, "George", "Harrison"));
+
+		MeetingsService service=MeetingsServiceFactory.getLocalService();
+		Room room=service.getRooms().get(2);
 		List<Attendee> attendes=new ArrayList<Attendee>();
-		attendes.add(new Attendee(10, "John", "Lennon"));
-		attendes.add(new Attendee(11, "Ringo", "Starr"));
-		attendes.add(new Attendee(12, "Paul", "McCarney"));
-		attendes.add(new Attendee(13, "George", "Harrison"));
+		attendes.add(service.getAttendees().get(2));
+		attendes.add(service.getAttendees().get(3));
     	
-        String meetingJson = json(new Meeting(0, "Kickoff Meeting", room, attendes));
+        String meetingJson = json(new Meeting(1, "Kickoff Meeting", room, attendes));
         this.mockMvc.perform(post("/meetings")
                 .contentType(contentType)
                 .content(meetingJson))
                 .andExpect(status().isCreated());
+        
+
     }
 
     protected String json(Object o) throws IOException {
